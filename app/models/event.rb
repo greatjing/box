@@ -13,6 +13,10 @@ class Event < ApplicationRecord
   self.friendly_id
  end
 
+ # event状态
+ STATUS = ["draft", "public", "private"]
+ validates_inclusion_of :status, :in => STATUS
+
  protected
 
 #生成friendly_id
