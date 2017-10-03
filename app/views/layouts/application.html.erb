@@ -11,7 +11,6 @@
   <body>
     <div class="container">
 
-
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -50,8 +49,11 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
+      <%= link_to "中文版", :controller => controller_name, :action => action_name, :locale => "zh-CN" %>
+      <%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %>
 
       <%= yield %>
+
     </div>
   </body>
 </html>
