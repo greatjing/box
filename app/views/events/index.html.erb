@@ -5,7 +5,13 @@
   <% @events.each do |event| %>
     <li>
       <%= link_to event.name, event_path(event) %>
-      <%= event.created_at.strftime("%Y/%m/%d %I:%M %P") %>
+      <!-- <%= event.created_at.strftime("%Y/%m/%d %I:%M %P") %> -->
+
+      <!-- 使用自定义配置格式 -->
+      <%= event.created_at.to_s %>
+
+      <!-- 显示自定义格式显示 -->
+      <%= event.created_at.to_s(:ymd) %>
     </li>
   <% end %>
 </ul>
