@@ -21,6 +21,7 @@
 
 "en":
   # hello: "Hello world"
+  hello: "Hi %{name}"
   event_list: Event list
   admin:
     event_list: Admin Event list
