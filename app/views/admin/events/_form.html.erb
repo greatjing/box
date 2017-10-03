@@ -33,7 +33,7 @@
 </div> -->
 
 <!-- status 使用radio_button -->
-<div class="form-group">
+<!-- <div class="form-group">
   <%= f.label :status %>
   <% Event::STATUS.each do |s| %>
     <label>
@@ -41,4 +41,17 @@
       <%= t(s, :scope => "event.status") %>
     </label>
   <% end %>
+</div> -->
+
+<!-- 使用bootstrap button样式 -->
+<div class="form-group">
+  <%= f.label :status %>
+  <div class="btn-group" data-toggle="buttons">
+    <% Event::STATUS.each do |s| %>
+      <label class="btn btn-default <%= (s == f.object.status)? 'active' : '' %> ">
+        <%= f.radio_button :status, s %>
+        <%= t(s, :scope => "event.status") %>
+      </label>
+    <% end %>
+  </div>
 </div>
