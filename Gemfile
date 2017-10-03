@@ -43,6 +43,9 @@ gem 'jbuilder', '~> 2.5'
 #中文翻译
 gem "rails-i18n"
 
+# devise中文翻译
+gem "devise-i18n"
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
