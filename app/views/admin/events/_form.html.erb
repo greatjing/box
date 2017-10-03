@@ -26,8 +26,19 @@
   <p class="help-block">限小写英数字及横线，将作为网址的一部分</p>
 </div>
 
-<div class="form-group">
+<!-- status 使用select -->
+<!-- <div class="form-group">
   <%= f.label :status %>
   <%= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s] }, {}, :class => "form-control" %>
+</div> -->
 
+<!-- status 使用radio_button -->
+<div class="form-group">
+  <%= f.label :status %>
+  <% Event::STATUS.each do |s| %>
+    <label>
+      <%= f.radio_button :status, s %>
+      <%= t(s, :scope => "event.status") %>
+    </label>
+  <% end %>
 </div>
