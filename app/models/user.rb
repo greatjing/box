@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
 # user与profile关系
   has_one :profile
+  # 在更新user时候，接受更新profile
+  accepts_nested_attributes_for :profile
 
   def display_name
     self.email.split("@").first
