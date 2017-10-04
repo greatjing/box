@@ -49,6 +49,9 @@ gem "devise-i18n"
 # 添加jquery plugin：select2
 gem "select2-rails"
 
+# ui动态新增
+gem "nested_form_fields"
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
