@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :find_user
+
+  def show
+  end
 
   def edit
-    @user = current_user
+    # @user = current_user
     # 假如@user.profile不存在时，新建一个
     @user.create_profile unless @user.profile
   end
 
   def update
-    @user = current_user
+    # @user = current_user
 
     if @user.update(user_params)
       flash[:notice] = "修改成功"
@@ -21,6 +25,11 @@ class UsersController < ApplicationController
   end
 
   protected
+
+  def find_user
+    @user = current_user
+    @user.create_profile unless @user.profile
+  end
 
   def user_params
     params.require(:user).permit(:time_zone, :profile_attributes => [:id, :legal_name, :birthday, :location, :education, :occupation, :bio, :specialty ])
