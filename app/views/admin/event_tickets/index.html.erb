@@ -15,7 +15,7 @@
     <tr>
       <td><%= ticket.name %></td>
       <td><%= ticket.price %></td>
-      <td><%= ticket.description %></td>
+      <td><%= simple_format ticket.description %></td>
       <td>
         <%= link_to "edit", edit_admin_event_ticket_path(@event, ticket), :class => "btn btn-default" %>
         <%= link_to "delete", admin_event_ticket_path(@event, ticket), :method => "delete", :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
