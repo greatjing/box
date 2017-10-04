@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
 
     if @user.update(user_params)
       flash[:notice] = "更新成功"
-      redirect_to admin_user_path
+      redirect_to admin_users_path
     else
       render "edit"
     end
@@ -22,7 +22,7 @@ class Admin::UsersController < AdminController
   protected
 
   def user_params
-    params.require[:user].permit(:email)
+    params.require(:user).permit(:email, :group_ids => [])
   end
 
 
