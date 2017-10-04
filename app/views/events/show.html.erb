@@ -6,4 +6,10 @@
 <!-- 使用i18n来显示中文 -->
 <h2><%= t(@event.status, :scope => "event.status") %></h2>
 
+<!-- 显示event的类型 -->
+<!-- <h2><%#= @event.category.name %></h2> -->
+
+<!-- 兼容category是nil时处理,name在括号中成为变量需要加冒号 -->
+<h2><%= @event.category.try(:name) %></h2>
+
 <%= simple_format @event.description %>
