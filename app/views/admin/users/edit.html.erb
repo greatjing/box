@@ -1,0 +1,24 @@
+<h1>Edit User</h1>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [:admin, @user] do f %>
+  <div class="form-group">
+    <%= f.label :emial %>
+    <%= f.text_field :email, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "update", :class => "btn btn-default" %>
+    <%= link_to "cancel", admin_users_path %>
+  </div>
+
+<% end %>
