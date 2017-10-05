@@ -4,4 +4,7 @@
   <%= link_to "打開前台", event_path(@event), :target => "_blank", :class => "btn btn-primary" %>
 </p>
 
-<%= simple_format @event.description %>
+<!-- <%= simple_format @event.description %> -->
+
+<!-- 安全并正确显示html内容 -->
+<%= sanitize @event.description%>

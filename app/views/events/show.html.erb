@@ -17,4 +17,7 @@
 
 <!-- 下面任一都可以正常显示html内容,这种方式是有安全风险 -->
 <!-- <%= raw @event.description %> -->
-<%= @event.description.html_safe %>
+<!-- <%= @event.description.html_safe %> -->
+
+<!-- 使用白名单过滤 -->
+<%= sanitize @event.description %>
