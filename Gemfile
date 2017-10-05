@@ -55,6 +55,9 @@ gem "nested_form_fields"
 # 日历控件
 gem 'bootstrap-datepicker-rails'
 
+# rich editor 富文本
+gem 'ckeditor'
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
