@@ -58,6 +58,9 @@ gem 'bootstrap-datepicker-rails'
 # rich editor 富文本
 gem 'ckeditor'
 
+# 自定义排序
+gem 'ranked-model'
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

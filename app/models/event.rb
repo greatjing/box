@@ -23,6 +23,10 @@ class Event < ApplicationRecord
  STATUS = ["draft", "public", "private"]
  validates_inclusion_of :status, :in => STATUS
 
+ # 自定义排序
+ include RankedModel
+ ranks :row_order
+
  protected
 
 #生成friendly_id
