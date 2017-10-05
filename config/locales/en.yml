@@ -21,6 +21,8 @@
 
 "en":
   # hello: "Hello world"
+  bulk_update: bulk_update
+  bulk_delete: bulk_delete
   hello: "Hi %{name}"
   event_list: Event list
   admin:
