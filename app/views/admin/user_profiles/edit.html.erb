@@ -8,7 +8,12 @@
 
   <div class="form-group">
     <%= f.label :birthday %>
-    <%= f.date_field :birthday, :class => "form-control" %>
+    <!-- 下面的ui是用浏览器内建<input type="date">，这种input除了chrome外其他不怎么支持  -->
+    <!-- <%= f.date_field :birthday, :class => "form-control" %> -->
+
+    <!-- rails内建的下拉选项方式 -->
+    <%= f.date_select :birthday, :class => "form-control" %>
+
   </div>
 
   <div class="form-group">

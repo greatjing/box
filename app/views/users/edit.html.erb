@@ -14,7 +14,10 @@
 
     <div class="form-group">
       <%= ff.label :birthday %>
-      <%= ff.date_field :birthday, :class => "form-control" %>
+      <!-- <%= ff.date_field :birthday, :class => "form-control" %> -->
+
+      <!-- 下面使用日历gem -->
+      <%= ff.text_field :birthday, :class => "form-control" %>
     </div>
 
     <div class="form-group">
@@ -47,3 +50,8 @@
     <%= f.submit "Save", :class => "btn btn-primary" %>
   </div>
 <% end %>
+
+
+<script>
+  $("#user_profile_attributes_birthday").datepicker({ format: "yyyy-mm-dd" });
+</script>
