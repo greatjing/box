@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       collection do
         post :bulk_update
       end
+      # 用户自定义显示的顺序
+      member do
+        post :reorder
+      end
     end
 
     resources :users do
