@@ -4,6 +4,11 @@ class Registration < ApplicationRecord
   validates_inclusion_of :status, :in => STATUS
   validates_presence_of :status, :ticket_id
 
+# 在多步骤中特定步骤中进行验证
+  attr_accessor :current_step
+  validates_presence_of :name, :email, :cellphone, :if => :should_validate_basic_data?
+  validates_presence_of :name, :email, :cellphone, :bio, :if => :should_validate_all_data?
+
   belongs_to :event
   belongs_to :ticket
   belongs_to :users, :optional => true
@@ -15,6 +20,16 @@ class Registration < ApplicationRecord
   end
 
   protected
+
+# 在第二步骤时候验证
+  def should_validate_basic_data?
+    current_step == 2
+  end
+
+# 在第三步骤或者状态是confirmed时候验证
+  def should_validate_all_data?
+    current_step == 3 || status == "confirmed"
+  end
 
   def generate_uuid
     self.uuid = SecureRandom.uuid
