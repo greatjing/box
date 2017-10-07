@@ -14,6 +14,7 @@
   </div>
 
   <div class="form-group">
+    <%= link_to "Previous", step2_event_registration_path(@event, @registration), :class => "btn btn-primary" %>
     <%= f.submit "sumbimt", :class => "btn btn-primary" %>
   </div>
 <% end %>
