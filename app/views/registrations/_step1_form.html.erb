@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= f.label :ticket_id %>
+  <%= f.label :ticket_id , "活动", :class => "control-label"%>
   <%= f.select :ticket_id, @event.tickets.map{ |t| [t.name, t.id] }, {}, :class => "form-control" %>
 </div>
 
