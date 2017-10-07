@@ -27,3 +27,7 @@
   event_list: Event list
   admin:
     event_list: Admin Event list
+  registration:
+    status:
+      pending: no registration
+      confirmed: registration successful

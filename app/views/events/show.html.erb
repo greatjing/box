@@ -21,3 +21,7 @@
 
 <!-- 使用白名单过滤 -->
 <%= sanitize @event.description %>
+
+<p>
+  <%= link_to "开始报名", new_event_registration_path(@event), :class => "btn btn-default"  %>
+</p>
