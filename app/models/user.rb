@@ -14,6 +14,9 @@ class User < ApplicationRecord
   # 在更新user时候，接受更新profile
   accepts_nested_attributes_for :profile
 
+  # 报名信息
+  has_many :registrations
+
   def display_name
     self.email.split("@").first
   end

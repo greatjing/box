@@ -14,6 +14,9 @@ class Event < ApplicationRecord
  has_many :tickets, :dependent => :destroy, :inverse_of => :event
  accepts_nested_attributes_for :tickets, :allow_destroy => true, :reject_if => :all_blank
 
+ # 报名信息
+ has_many :registrations, :dependent => :destroy
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id
