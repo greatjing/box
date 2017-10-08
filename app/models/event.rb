@@ -17,6 +17,10 @@ class Event < ApplicationRecord
  # 报名信息
  has_many :registrations, :dependent => :destroy
 
+ # 常用查找定义
+ scope :only_public, -> { where( :status => "public" ) }
+ scope :only_available, -> { where( :status => ["public", "private"] ) }
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id
