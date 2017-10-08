@@ -5,6 +5,11 @@ class Admin::EventRegistrationsController < AdminController
     # 分页显示，每页10个，按照id的倒序显示，registration要包括tickets
     @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
 
+    # 按照报名标号进行查找,可用逗号进行多个查找
+    if params[:registration_id].present?
+      @registrations = @registrations.where( :id => params[:registration_id].split(",") )
+    end
+
 # 单选status和ticket
     if params[:status].present? && Registration::STATUS.include?(params[:status])
         @registrations = @registrations.by_status(params[:status])
