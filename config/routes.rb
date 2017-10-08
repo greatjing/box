@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root "events#index"
     resources :events do
+      # 票务
       resources :tickets, :controller => "event_tickets"
+      # 报名信息
+      resources :registrations, :controller => "event_registrations"
       # 批量删除
       collection do
         post :bulk_update
