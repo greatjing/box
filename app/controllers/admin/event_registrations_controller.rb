@@ -4,6 +4,8 @@ class Admin::EventRegistrationsController < AdminController
   def index
     # 分页显示，每页10个，按照id的倒序显示，registration要包括tickets
     @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
+
+# 单选status和ticket
     if params[:status].present? && Registration::STATUS.include?(params[:status])
         @registrations = @registrations.by_status(params[:status])
     end
@@ -12,7 +14,16 @@ class Admin::EventRegistrationsController < AdminController
       @registrations = @registrations.by_ticket(params[:ticket_id])
     end
 
+#多选status和ticket
+    if Array(params[:statuses]).any?
+      @registrations = @registrations.by_status(params[:statuses])
+    end
+
+    if Array(params[:ticket_ids]).any?
+      @registrations = @registrations.by_ticket(params[:ticket_ids])
+    end
   end
+
 
   def destroy
     @registration = @event.registrations.find_by_uuid(params[:id])
