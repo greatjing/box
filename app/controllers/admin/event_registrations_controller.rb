@@ -2,7 +2,8 @@ class Admin::EventRegistrationsController < AdminController
   before_action :find_event
 
   def index
-    @registrations = @event.registrations.includes(:ticket).order("id DESC")
+    # 分页显示，每页10个，按照id的倒序显示，registration要包括tickets
+    @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
   end
 
   def destroy

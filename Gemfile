@@ -64,6 +64,9 @@ gem 'ranked-model'
 # 在页面拖拽调整顺序
 gem 'jquery-ui-rails'
 
+# 分页
+gem 'kaminari'
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

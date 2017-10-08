@@ -19,7 +19,7 @@
   <td><%= registration.id %></td>
   <td><%= registration.ticket.name %></td>
   <td><%= registration.name %></td>
-  <td><%= registration.status %></td>
+  <td><%= t(registration.status, :scope => "registration.status") %></td>
   <td><%= registration.email %></td>
   <td><%= registration.created_at %></td>
   <td>
@@ -30,3 +30,5 @@
 <% end %>
 
 </table>
+
+<%= paginate @registrations %>
