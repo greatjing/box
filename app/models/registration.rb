@@ -18,6 +18,10 @@ class Registration < ApplicationRecord
 
   before_validation :generate_uuid, :on => :create
 
+  #常用查询
+  scope :by_status, ->(s){ where( :status => s ) }
+  scope :by_ticket, ->(t){ where( :ticket_id => t ) }
+
   def to_param
     self.uuid
   end
