@@ -22,7 +22,13 @@
 </div>
 <% end %>
 
-<%= form_tag admin_event_registrations_path(@event), :method => :get do %>
+<!-- <%= form_tag admin_event_registrations_path(@event), :method => :get do %> -->
+<!-- 使用搜索关键字 -->
+<%= search_form_for @q, :url => admin_event_registrations_path(@event) do |f| %>
+
+  <p><%= f.search_field :name_cont, :placeholder => "姓名", :class => "form-control" %></p>
+  <p><%= f.search_field :email_cont, :placeholder => "E-mail", :class => "form-control" %></p>
+
   <p>
     <%= text_field_tag :registration_id, params[:registration_id], :placeholder => "报名编号，可用逗号隔开", :class => "form-control" %>
   </p>
@@ -76,5 +82,7 @@
 <% end %>
 
 </table>
+<!-- 不知道为什么提示要加下面的end，没有检查出来 -->
+<% end %>
 
 <%= paginate @registrations %>

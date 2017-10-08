@@ -3,7 +3,11 @@ class Admin::EventRegistrationsController < AdminController
 
   def index
     # 分页显示，每页10个，按照id的倒序显示，registration要包括tickets
-    @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
+    # @registrations = @event.registrations.includes(:ticket).order("id DESC").page(params[:page]).per(10)
+
+    #使用搜索功能
+    @q = @event.registrations.ransack(params[:q])
+    @registrations = @q.result.includes(:ticket).order("id DESC").page(params[:page]).per(10)
 
     # 按照报名标号进行查找,可用逗号进行多个查找
     if params[:registration_id].present?
