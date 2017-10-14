@@ -24,6 +24,10 @@ class Event < ApplicationRecord
  # 挂载图片
  mount_uploader :logo, EventLogoUploader
 
+ # 挂载多图片
+ mount_uploaders :images, EventImageUploader
+ serialize :images, JSON
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id

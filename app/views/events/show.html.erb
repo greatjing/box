@@ -16,6 +16,12 @@
 <!-- 兼容category是nil时处理,name在括号中成为变量需要加冒号 -->
 <h2><%= @event.category.try(:name) %></h2>
 
+<% if @event.images.present? %>
+  <% @event.images.each do |i| %>
+    <%= link_to image_tag(i.url(:small)), i.url %>
+  <% end %>
+<% end %>
+
 <!-- 下面不能好显示html -->
 <!-- <%#= simple_format @event.description %> -->
 
