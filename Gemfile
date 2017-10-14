@@ -70,6 +70,10 @@ gem 'kaminari'
 # 搜索关键字
 gem 'ransack'
 
+# 上传和存储图片
+gem 'carrierwave'
+gem "mini_magick"
+
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

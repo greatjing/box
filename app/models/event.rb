@@ -21,6 +21,9 @@ class Event < ApplicationRecord
  scope :only_public, -> { where( :status => "public" ) }
  scope :only_available, -> { where( :status => ["public", "private"] ) }
 
+ # 挂载图片
+ mount_uploader :logo, EventLogoUploader
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id
