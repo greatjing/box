@@ -18,11 +18,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "events#index"
+    # 版本控制
+    resources :versions do
+      post :undo
+    end
+
     resources :events do
       # 票务
       resources :tickets, :controller => "event_tickets"
       # 报名信息
       resources :registrations, :controller => "event_registrations"
+      
       # 批量删除
       collection do
         post :bulk_update
