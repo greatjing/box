@@ -28,6 +28,10 @@ class Event < ApplicationRecord
  mount_uploaders :images, EventImageUploader
  serialize :images, JSON
 
+ # 挂载多图片，每个图片都可以单独编辑
+ has_many :attachments, :class_name => "EventAttachment", :dependent => :destroy
+ accepts_nested_attributes_for :attachments, :allow_destroy => true, :reject_if => :all_blank
+
  def to_param
   #  "#{self.id}-#{self.name}"
   self.friendly_id
