@@ -91,6 +91,9 @@ end
 group :development do
   gem 'faker'
 
+  # 添加开发中邮件发送
+  gem  'letter_opener'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
