@@ -19,6 +19,16 @@ class User < ApplicationRecord
   # 报名信息
   has_many :registrations
 
+  # 判断用户是否是admin用户
+  def is_admin?
+    self.role == "admin"
+  end
+
+  # 判断用户是否是editor用户
+  def is_editor?
+    ["admin", "editor"].include?(self.role)
+  end
+
   def display_name
     self.email.split("@").first
   end

@@ -27,8 +27,16 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <% if current_user %>
-              <li class="active"><%= link_to('活動管理', admin_events_path) %></li>
-              <li><%= link_to('用户管理', admin_users_path) %></li>
+              <!-- 当角色是editor和admin时候才显示活动管理 -->
+              <!-- 重构  -->
+              <% if current_user.is_editor? %>
+                <li class="active"><%= link_to('活動管理', admin_events_path) %></li>
+              <% end %>
+              <!-- 当角色是admin时候才会显示用户管理  -->
+              <!-- 重构  -->
+              <% if current_user.is_admin? %>
+                <li><%= link_to('用户管理', admin_users_path) %></li>
+              <% end %>
             <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -64,5 +72,6 @@
 
       <%= yield %>
     </div>
+
   </body>
 </html>
