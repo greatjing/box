@@ -1,4 +1,6 @@
 class Admin::UsersController < AdminController
+  # 只有管理员才可以操作
+  before_action :require_admin!
 
   def index
     # @users = User.all

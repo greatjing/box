@@ -1,6 +1,8 @@
 require 'csv'
 class Admin::EventRegistrationsController < AdminController
   before_action :find_event
+  # 增加权限校验
+  before_action :require_editor!
 
   def index
     # 分页显示，每页10个，按照id的倒序显示，registration要包括tickets

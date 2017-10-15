@@ -1,4 +1,6 @@
 class Admin::EventsController < AdminController
+  # 增加权限校验
+  before_action :require_editor!
 
   def index
     # @events = Event.all

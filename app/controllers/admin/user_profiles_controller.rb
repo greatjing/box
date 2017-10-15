@@ -1,5 +1,7 @@
 class Admin::UserProfilesController < AdminController
   before_action :find_user_and_profile
+  # 只有管理员才可以操作
+  before_action :require_admin!
 
   def edit
   end
