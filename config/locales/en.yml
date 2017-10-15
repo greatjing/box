@@ -35,3 +35,6 @@
     role:
       admin: superManger
       editor: eventManger
+  notification:
+    subject:
+      confirmed_registration: "registration successful %{name}"
