@@ -31,3 +31,7 @@
     status:
       pending: no registration
       confirmed: registration successful
+  user:
+    role:
+      admin: superManger
+      editor: eventManger

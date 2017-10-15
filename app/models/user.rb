@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+# 所有角色
+  ROLES = ["admin", "editor"]
 
 # user与group关系
   has_many :memberships
