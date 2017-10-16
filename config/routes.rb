@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :registrations do
-      # 针对单个registration进行操作
+      # 针对单个registration进行操作，为什么两种registration路由，是需要不同跳转吗？——这属于用户的操作
       member do
         get "steps/1" => "registrations#step1", :as => :step1
         patch "steps/1/update" => "registrations#step1_update", :as => :update_step1
@@ -26,9 +26,14 @@ Rails.application.routes.draw do
     resources :events do
       # 票务
       resources :tickets, :controller => "event_tickets"
-      # 报名信息
-      resources :registrations, :controller => "event_registrations"
-      
+      # 报名信息——下面属于管理员的操作
+      resources :registrations, :controller => "event_registrations" do
+        # csv导入数据
+        collection do
+          post :import
+        end
+      end
+
       # 批量删除
       collection do
         post :bulk_update
