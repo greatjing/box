@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     end
 
     resources :events do
+      # 导入csv文档过程纪录
+      resources :registration_imports
+
       # 票务
       resources :tickets, :controller => "event_tickets"
       # 报名信息——下面属于管理员的操作

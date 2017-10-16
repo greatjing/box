@@ -16,6 +16,8 @@ class Event < ApplicationRecord
 
  # 报名信息
  has_many :registrations, :dependent => :destroy
+ # 导入csv文件过程
+ has_many :registration_imports, :dependent => :destroy
 
  # 常用查找定义
  scope :only_public, -> { where( :status => "public" ) }
