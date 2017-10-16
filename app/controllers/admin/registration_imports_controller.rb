@@ -12,8 +12,9 @@ class Admin::RegistrationImportsController < AdminController
     @import.user = current_user
 
     if @import.save
-      @import.process!
-      flash[:notice] = "导入完成"
+      # @import.process!
+      ImportWorkerJob.perform_later(@import.id)
+      flash[:notice] = "导入已在运行，请稍后查看结果"
     end
 
     redirect_to admin_event_registration_imports_path(@event)
